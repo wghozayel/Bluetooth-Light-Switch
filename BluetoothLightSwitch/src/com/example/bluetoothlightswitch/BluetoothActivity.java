@@ -71,8 +71,8 @@ public class BluetoothActivity extends Activity {
 			setupBluetooth();
 	}
 
-	/**
-	 * Used when Bluetooth has been enabled, in order to set to discoverable and
+
+	/* Used when Bluetooth has been enabled, in order to set to discoverable and
 	 * carry out any subsequent operations
 	 */
 	private void setupBluetooth() {
