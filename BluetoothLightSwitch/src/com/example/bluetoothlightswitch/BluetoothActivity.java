@@ -32,7 +32,7 @@ public class BluetoothActivity extends Activity {
 	private BroadcastReceiver mReceiver = null;
 	/* String for connected device */
 	private String _bluetoothDevice = ""; // TODO : Turn into an arrayList, to
-											// display for user and select from
+					      // display for user and select from
 	private SeekBar seek;
 	private OutputStream out;
 	private BluetoothConnection connexion;
@@ -71,8 +71,8 @@ public class BluetoothActivity extends Activity {
 			setupBluetooth();
 	}
 
-
-	/* Used when Bluetooth has been enabled, in order to set to discoverable and
+	
+	 /* Used when Bluetooth has been enabled, in order to set to discoverable and
 	 * carry out any subsequent operations
 	 */
 	private void setupBluetooth() {
