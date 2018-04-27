@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html style="display:inline-block; text-align:center;">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Bluetooth Light Switch</title>
+<style>
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 80%;
+    height: 15px;
+    border-radius: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-top: 40px;
+}
+
+.slider:hover {
+    opacity: 3;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4e84ff;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4e84ff;
+    cursor: pointer;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    min-width: 170px;
+}
+
+.button5 {background-color: #555555;} /* Black */
+
+</style>
+</head>
+<body style="background-color: black;">
+
+<h2>Bedroom Controls</h2>
+<form action="/" method="POST">
+ <input type="hidden" name="method" value="toggle_lights">
+<input type="submit" class="button button5" value="Toggle Light">
+</form>
+<form action="/" method="POST">
+ <input type="hidden" name="method" value="open_curtain">
+<input type="submit" class="button button5" value="Open Curtain">
+</form>
+<form action="/" method="POST">
+ <input type="hidden" name="method" value="close_curtain">
+<input type="submit" class="button button5" value="Close Curtain">
+</form>
+<form id="sliderForm" action="/" method="POST">
+ <input type="hidden" name="method" value="move_curtain">
+<div class="slidecontainer">
+  <input type="range" name="slider" value="126" min="0" max="252" class="slider" id="myRange">
+</div>
+</form>
+<script>
+var slider = document.getElementById("myRange");
+
+function send_action() {  
+
+   var http = new XMLHttpRequest();
+   var url = "/";
+   var params = "method=move_curtain&slider="+slider.value;
+   http.open("POST", url, true);
+   http.send(params);
+
+};
+slider.ontouchmove = send_action;
+slider.oninput = send_action;
+</script>
+
+</body>
+</html>
+
