@@ -54,7 +54,7 @@ void loop()
       digitalWrite(curtainsIn1, LOW);
       digitalWrite(curtainsIn2, HIGH);
       analogWrite(curtainsEn, 255);
-      delay(8000);
+      delay(8560);
       digitalWrite(curtainsIn1, LOW);
       digitalWrite(curtainsIn2, LOW);
   }
